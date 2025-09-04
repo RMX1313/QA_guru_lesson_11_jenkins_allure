@@ -1,0 +1,8 @@
+# Default ignored files
+/../../QA_guru_lesson_11_jenkins_allure /.idea/shelf/
+/../../QA_guru_lesson_11_jenkins_allure /.idea/workspace.xml
+# Editor-based HTTP Client requests
+/../../QA_guru_lesson_11_jenkins_allure /.idea/httpRequests/
+# Datasource local storage ignored files
+/../../QA_guru_lesson_11_jenkins_allure /.idea/dataSources/
+/../../QA_guru_lesson_11_jenkins_allure /.idea/dataSources.local.xml
