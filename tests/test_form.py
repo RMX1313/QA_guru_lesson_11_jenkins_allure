@@ -2,6 +2,7 @@ import allure
 from selene import browser, be, have
 import os
 from selene.support.shared import browser
+from selenium.webdriver.chrome.options import Options
 
 def setup_browser():
     options = Options()
