@@ -1,0 +1,3 @@
+SELENOID_LOGIN=login
+SELENOID_PASS=password
+SELENOID_URL=selenoid_url
