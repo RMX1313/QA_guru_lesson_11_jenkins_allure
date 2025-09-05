@@ -24,7 +24,7 @@ def setup_browser(request):
 
     )
 
-    browser = Browser(Config(driver))
+    browser.config.driver = driver  # Создаем объект Selene с WebDriver
     yield browser
 
     attach.add_screenshot(browser)
