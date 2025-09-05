@@ -6,7 +6,7 @@ import os
 from selene.support.shared import browser
 
 
-setup_browser()
+
 def test_form():
     with allure.step('Открываем формум регистрации'):
         file_path = os.path.join(os.path.dirname(__file__), 'file.txt')
