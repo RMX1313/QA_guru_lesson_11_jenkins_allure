@@ -1,6 +1,7 @@
 import allure
 from selene import browser, be, have
 import os
+from selene.support.shared import browser
 
 
 def test_form():
