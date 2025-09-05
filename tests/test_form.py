@@ -3,7 +3,14 @@ from selene import browser, be, have
 import os
 from selene.support.shared import browser
 
+def setup_browser():
+    options = Options()
+    temp_profile_dir = tempfile.mkdtemp()
+    options.add_argument(f'--user-data-dir={temp_profile_dir}')
+    # Другие опции при необходимости
+    browser.config.driver_options = options
 
+setup_browser()
 def test_form():
     with allure.step('Открываем формум регистрации'):
         file_path = os.path.join(os.path.dirname(__file__), 'file.txt')
