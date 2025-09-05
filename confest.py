@@ -6,6 +6,19 @@ from selene import Browser, Config
 
 from utils import attach
 
+@pytest.fixture(scope="function", autouse=True)
+def setup_browser():
+    options = Options()
+    # Добавляем UUID для дополнительной уникальности в CI
+    unique_id = str(uuid.uuid4())
+    temp_profile_dir = tempfile.mkdtemp(prefix=f'chrome_profile_{unique_id}_')
+    options.add_argument(f'--user-data-dir={temp_profile_dir}')
+    browser.config.driver_options = options
+    yield  # Тест выполняется здесь
+    # Teardown: закрываем браузер и очищаем директорию
+    browser.quit()
+    shutil.rmtree(temp_profile_dir, ignore_errors=True)
+
 @pytest.fixture(scope='function')
 def setup_browser(request):
     options = Options()
