@@ -1,3 +1,19 @@
+import tempfile
+from selenium.webdriver.chrome.options import Options
+from selene.support.shared import browser
+
+def setup_browser():
+    options = Options()
+    temp_profile_dir = tempfile.mkdtemp()
+    options.add_argument(f'--user-data-dir={temp_profile_dir}')
+    browser.config.driver_options = options
+
+setup_browser()
+
+def test_form():
+    browser.open('https://demoqa.com/automation-practice-form')
+    # Ваш тест здесь
+
 import allure
 from selene import browser, be, have
 import os
