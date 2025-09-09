@@ -9,6 +9,18 @@ def test_form():
     with allure.step('Открываем формум регистрации'):
         file_path = os.path.join(os.path.dirname(__file__), 'file.txt')
         browser.open('https://demoqa.com/automation-practice-form')
+
+        try:
+            ad_iframe = browser.element('iframe#google_ads_iframe_...')
+            browser.driver.execute_script("arguments[0].style.display='none';", ad_iframe._impl)
+        except Exception:
+            pass
+        close_button = browser.element('close_button_svg')
+        try:
+            close_button.should(be.present, timeout=5)
+            close_button.click()
+        except Exception:
+            pass
     with allure.step('Заполнение формы'):
         browser.element('#firstName').should(be.visible).type('Александр')
         browser.element('#lastName').should(be.visible).type("Евдошенко")
